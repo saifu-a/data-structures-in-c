@@ -2,7 +2,7 @@
  * This is an implementation of Hash Table.
  * The hash function used here is: n mod k
  * The time complexity to store a value: O(1)
- * the time complexity to retrieve a value: O(1)
+ * The time complexity to retrieve a value: O(1)
 */
 
 #include <stdio.h>
