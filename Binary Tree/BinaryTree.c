@@ -10,6 +10,7 @@ struct TreeNode
 typedef struct TreeNode node;
 
 node *createBinTree(node *root);
+node *createNode(int data);
 void preorder(node *root);
 void inorder(node *root);
 void postorder(node *root);
@@ -51,6 +52,18 @@ int main(int argc, char *argv[])
     }
 }
 
+node *createNode(int data)
+{
+    node *root;
+
+    root = (node *)malloc(sizeof(node));
+    root->data = data;
+    root->left = NULL;
+    root->right = NULL;
+
+    return root;
+}
+
 node *createBinTree(node *root)
 {
     char choice;
@@ -58,12 +71,9 @@ node *createBinTree(node *root)
 
     if (root == NULL)
     {
-        root = (node *)malloc(sizeof(node));
         printf("\nEnter value: ");
         scanf("%d", &input);
-        root->data = input;
-        root->left = NULL;
-        root->right = NULL;
+        root = createNode(input);
     }
 
     printf("Does it have a left child (Y/N)? ");
@@ -110,5 +120,5 @@ void postorder(node *root)
 
     postorder(root->left);
     postorder(root->right);
-    printf("%d\n", root->data);
+    printf("%d\t", root->data);
 }
