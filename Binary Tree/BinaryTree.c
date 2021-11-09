@@ -53,6 +53,8 @@ int main(int argc, char *argv[])
             printf("Wrong choice! try again.");
         }
     }
+
+    return 0;
 }
 
 node *createNode(int data)
