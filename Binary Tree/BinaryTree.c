@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define FALSE 0
+#define TRUE 1
+
 struct TreeNode
 {
     struct TreeNode *left;
@@ -20,7 +23,7 @@ int main(int argc, char *argv[])
     node *root = NULL;
     int ch;
 
-    while (1)
+    while (TRUE)
     {
         printf("\n1. Create");
         printf("\n2. Preorder Traversal");
