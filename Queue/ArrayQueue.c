@@ -68,9 +68,6 @@ void display(Queue *queue)
 {
     int i;
 
-    printf("\nFront at %d", queue->front);
-    printf("\nRear at %d\n", queue->rear);
-
-    for (i = 0; i < MAX; i++)
+    for (i = queue->front; i <= queue->rear; i++)
         printf("%d\t", queue->array[i]);
 }
