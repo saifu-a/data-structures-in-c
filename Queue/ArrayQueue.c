@@ -79,6 +79,12 @@ void display(Queue *queue)
     printf("\nFront at %d", queue->front);
     printf("\nRear at %d\n", queue->rear);
 
+    if (queue->front == queue->rear)
+    {
+        printf("Queue is empty.");
+        return;
+    }
+
     for (i = queue->front; i <= queue->rear; i++)
         printf("%d\t", queue->array[i]);
 }
