@@ -27,11 +27,13 @@ int main()
     enqueue(queue, 3);
     enqueue(queue, 4);
     enqueue(queue, 5);
-    // enqueue(queue, 6);
+
+    printf("Dequeued element: %d\n", dequeue(queue));
+    printf("Dequeued element: %d\n", dequeue(queue));
+    printf("Dequeued element: %d\n", dequeue(queue));
 
     display(queue);
 
-    free(queue);
     return 0;
 }
 
@@ -58,7 +60,7 @@ int dequeue(Queue *queue)
     int item;
 
     item = queue->array[queue->front];
-    queue->front--;
+    queue->front++;
     return item;
 }
 
@@ -69,6 +71,6 @@ void display(Queue *queue)
     printf("\nFront at %d", queue->front);
     printf("\nRear at %d\n", queue->rear);
 
-    for (i = 0; i <= MAX; i++)
+    for (i = 0; i < MAX; i++)
         printf("%d\t", queue->array[i]);
 }
