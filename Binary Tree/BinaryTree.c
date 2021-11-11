@@ -137,14 +137,11 @@ int height(node *root)
 {
     int leftTreeHeight, rightTreeHeight;
 
-    if (root->left == NULL && root->right == NULL)
-        return 1;
+    if (root == NULL)
+        return 0;
 
-    else
-    {
-        leftTreeHeight = height(root->left);
-        rightTreeHeight = height(root->right);
+    leftTreeHeight = height(root->left);
+    rightTreeHeight = height(root->right);
 
-        return leftTreeHeight > rightTreeHeight ? leftTreeHeight + 1 : rightTreeHeight + 1;
-    }
+    return leftTreeHeight > rightTreeHeight ? leftTreeHeight + 1 : rightTreeHeight + 1;
 }
