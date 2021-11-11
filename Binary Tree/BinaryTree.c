@@ -17,6 +17,7 @@ node *createNode(int data);
 void preorder(node *root);
 void inorder(node *root);
 void postorder(node *root);
+int height(node *root);
 
 int main(int argc, char *argv[])
 {
@@ -29,7 +30,8 @@ int main(int argc, char *argv[])
         printf("\n2. Preorder Traversal");
         printf("\n3. In-order Traversal");
         printf("\n4. Postorder Traversal");
-        printf("\n5. Exit");
+        printf("\n5. Height");
+        printf("\n6. Exit");
         printf("\nEnter your Choice: ");
         scanf("%d", &ch);
 
@@ -48,6 +50,9 @@ int main(int argc, char *argv[])
             postorder(root);
             break;
         case 5:
+            printf("\nHeight: %d", height(root));
+            break;
+        case 6:
             exit(1);
         default:
             printf("Wrong choice! try again.");
@@ -126,4 +131,20 @@ void postorder(node *root)
     postorder(root->left);
     postorder(root->right);
     printf("%d\t", root->data);
+}
+
+int height(node *root)
+{
+    int leftTreeHeight, rightTreeHeight;
+
+    if (root->left == NULL && root->right == NULL)
+        return 1;
+
+    else
+    {
+        leftTreeHeight = height(root->left);
+        rightTreeHeight = height(root->right);
+
+        return leftTreeHeight > rightTreeHeight ? leftTreeHeight + 1 : rightTreeHeight + 1;
+    }
 }
